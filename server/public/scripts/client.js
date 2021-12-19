@@ -2,9 +2,10 @@ console.log('js');
 
 $(document).ready(handleReady);
 
+let numOperator = '';
+
 function handleReady() {
     console.log('jQuery is ready');
-//     let numOperator = '';
     $('#calc-solve').on('click', collectData);
     $('#clear-input').on('click', clearInputs);
 }
@@ -21,6 +22,7 @@ function collectData(event) {
     event.preventDefault();
     console.log('in collectData');
     console.log($('#first-number').val());
+    console.log(document.getElementById('calc-add').clicked === true);
     //if($('.number-input').val() === '') {
     if($('#first-number').val() === '' || $('#second-number').val() === '') {
         alert('Missing number');
@@ -28,9 +30,15 @@ function collectData(event) {
     } else if($('#first-number').val() === NaN || $('#second-number').val() === NaN) {
         alert('Input must be a number');
     }
+    // get operator
+    if(document.getElementById('calc-add').clicked === true) {
+        console.log('clickeez');
+    } 
+    let numOperator = $('#number-operator').val();
+    numOperator = '';
+
     let numOne = $('#first-number').val();
     let numTwo = $('#second-number').val();
-    let numOperator = $('#number-operator').val();
     let numData = {
         numberOne: numOne,
         numberTwo: numTwo,
@@ -43,12 +51,6 @@ function collectData(event) {
 function sendMathProblem(problemToSend) {
     console.log('in sendMathProblem');
     console.log(problemToSend);
-//     let problemToSend = {
-//     numOne: numOne,
-//         operator: operator,
-//         numTwo; numTwo,
-//         solution: 0
-//     } 
     $.ajax({
         url: '/calculator',
         method: 'POST',
@@ -74,9 +76,9 @@ function getMathSolution() {
 }
 
 function clearInputs() {
-    $('.number-input').val('');
-    // $('#first-number').val('');
-    // $('#second-number').val('');
+    // $('.number-input').val('');
+    $('#first-number').val('');
+    $('#second-number').val('');
     $('.number-operator').off();
 }
 
