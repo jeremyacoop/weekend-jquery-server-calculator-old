@@ -4,22 +4,22 @@
             <meta charset="utf-8">
 	    <link rel="stylesheet" media="screen" href="./style/style.css" type="text/css" />
 	    <script src="./vendor/jQuery.js" charset="utf-8"></script>
-	    <script src="./scripts/script.js" charset="utf-8"></script>
+	    <script src="./scripts/client.js" charset="utf-8"></script>
 	    <title>Server Side Calculator</title>
 		<header>Server Side Calculator</header>
 	</head>
     <body>
 		<h1>
-			<input id="num-one" >
-			<button id="calc-add">+</button>
-			<button id="calc-subtract">-</button>
-			<button id="calc-multiply">*</button>
-			<button id="calc-divide">/</button>
-			<input id="num-two" >
+			<input class="number-input" id="first-number" >
+			<button class="number-operator" id="calc-add">+</button>
+			<button class="number-operator" id="calc-subtract">-</button>
+			<button class="number-operator" id="calc-multiply">*</button>
+			<button class="number-operator" id="calc-divide">/</button>
+			<input class="number-input" id="second-number" >
 			<button id="calc-solve" type="submit">=</button>
 			<button id="calc-clear">C</button>
 		</h1>
-		<div id="solution">
+		<div id="solution-here">
 
 		</div>
 		<ul id="calc-history">
